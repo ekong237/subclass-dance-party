@@ -46,5 +46,20 @@ $(document).ready(function() {
     );
     $('body').append(randDancer.$node);
   });
+  
+  $('.addPongDancerButton').on('click', function(event) {
+    var pongMakerFunctionName = $(this).data('dancer-pong-name');
+
+    // get the maker function for the kind of dancer we're supposed to make
+    var pongMakerFunction = window[pongMakerFunctionName];
+
+    var pongDancer = new SidePongDancer(
+      500,
+      50,
+      500
+    );
+    $('body').append(pongDancer.$node);
+  });
+  
 });
 

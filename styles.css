@@ -30,3 +30,8 @@ body, a:link, a:visited, a:active{
   border-radius:15px;
   position:absolute;
 }
+.pongdancer{
+  border:10px solid green;
+  border-radius:15px;
+  position:absolute;
+}
