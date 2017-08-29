@@ -1,6 +1,7 @@
 $(document).ready(function() {
   window.dancers = [];
-
+//how do we use this array within our dancer?
+  
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
@@ -28,7 +29,8 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
-    
+    window.dancers.push(dancer);
+    console.log(window.dancers);
     
     
   });
@@ -45,6 +47,8 @@ $(document).ready(function() {
       500
     );
     $('body').append(randDancer.$node);
+    window.dancers.push(randDancer);
+    console.log(window.dancers);
   });
   
   $('.addPongDancerButton').on('click', function(event) {
@@ -54,12 +58,49 @@ $(document).ready(function() {
     var pongMakerFunction = window[pongMakerFunctionName];
 
     var pongDancer = new SidePongDancer(
-      500,
-      50,
-      500
+      10,
+      300,
+      1500
     );
     $('body').append(pongDancer.$node);
+    window.dancers.push(pongDancer);
+    console.log(window.dancers);
   });
+  
+  $('.lineup').on('click', function(event) {
+    // add lineup button
+    // when clicked, loop through each item in dancers to call lineup function
+    var lastLocation = 0;
+    for (var i = 0; i < window.dancers.length; i++) {
+      window.dancers[i].lineup(lastLocation);
+      lastLocation += 20;
+    }
+  });
+  
+  
+ 
+  
+  // dancer on mouse over
+  // this, selects each dancer
+  
+  $(this).on('mouseover', function() {
+    //{"background-color": "yellow", "font-size": "200%"}
+  //   $(this).find('.dancer').addClass('enhance');
+    // console.log('this>>', this);
+  // });
+    //$(this, 'dancer').addClass('enhance');
+    $('.dancer:hover').css({'transform': 'scale(2)', 'border': '10px solid yellow'});
+  });
+  
+  $(this).on('mouseleave', function() {
+    //{"background-color": "yellow", "font-size": "200%"}
+  //   $(this).find('.dancer').addClass('enhance');
+    // console.log('this>>', this);
+  // });
+    //$(this, 'dancer').addClass('enhance');
+    $('.dancer:hover').css({'transform': 'scale(1)', 'border': '10px solid red'});
+  });
+  
   
 });
 
