@@ -6,6 +6,7 @@ describe('blinkyDancer', function() {
   beforeEach(function() {
     clock = sinon.useFakeTimers();
     blinkyDancer = new MakeBlinkyDancer(10, 20, timeBetweenSteps);
+    window.dancers.push(blinkyDancer);
   });
 
   it('should have a jQuery $node object', function() {
@@ -29,6 +30,31 @@ describe('blinkyDancer', function() {
 
       clock.tick(timeBetweenSteps);
       expect(blinkyDancer.step.callCount).to.be.equal(2);
+    });
+  });
+  
+  describe('Rain Dancer', function() {
+    beforeEach(function() {
+      clock = sinon.useFakeTimers();
+      rainDancer = new RainDancer(200, 50, 500);
+    });
+    
+    it('should call check distance when position changes', function() {
+      sinon.spy(rainDancer, 'checkDistance');
+      clock.tick(500);
+      expect(rainDancer.checkDistance.callCount).to.be.at.least(1);
+    });
+  });
+  
+  describe('Side Pong Dancer', function() {
+    beforeEach(function() {
+      clock = sinon.useFakeTimers();
+      pongDancer = new SidePongDancer(10, 30, 1500);
+    });
+    it('should animate side pong dancer', function() {
+      sinon.spy(pongDancer.$node, 'animate');
+      clock.tick(1500);
+      expect(pongDancer.$node.animate.called).to.be.true;
     });
   });
 });

@@ -7,6 +7,10 @@
   <script src="lib/mocha/mocha.js"></script>
   <script src="lib/chai/chai.js"></script>
   <script src="lib/sinon/sinon.js"></script>
+  <script> 
+    window.dancers = [];
+    </script> 
+    
   <script>
     mocha.setup('bdd');
     window.expect = chai.expect;
@@ -21,6 +25,7 @@
   <script src="src/sidePongDancer.js"></script>
 </head>
 <body>
+<div id="includedContent"></div>
 <div id="mocha"></div>
 </body>
 </html>

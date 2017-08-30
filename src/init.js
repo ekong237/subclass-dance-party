@@ -42,7 +42,7 @@ $(document).ready(function() {
     var rainMakerFunction = window[rainMakerFunctionName];
 
     var randDancer = new RainDancer(
-      500,
+      200,
       50,
       500
     );
@@ -84,22 +84,16 @@ $(document).ready(function() {
   // this, selects each dancer
   
   $(this).on('mouseover', function() {
-    //{"background-color": "yellow", "font-size": "200%"}
-  //   $(this).find('.dancer').addClass('enhance');
-    // console.log('this>>', this);
-  // });
+
     //$(this, 'dancer').addClass('enhance');
-    $('.dancer:hover').css({'transform': 'scale(2)', 'border': '10px solid yellow'});
+    $('.dancer:hover').css({'transform': 'scale(1.2)'});
   });
   
-  $(this).on('mouseleave', function() {
-    //{"background-color": "yellow", "font-size": "200%"}
-  //   $(this).find('.dancer').addClass('enhance');
-    // console.log('this>>', this);
+  // $(this).on('mouseleave', function() {
+  //   //{"background-color": "yellow", "font-size": "200%"}
+
+  //   $('.dancer:hover').css({'transform': 'scale(1)', 'border': '10px solid red'});
   // });
-    //$(this, 'dancer').addClass('enhance');
-    $('.dancer:hover').css({'transform': 'scale(1)', 'border': '10px solid red'});
-  });
   
   
 });

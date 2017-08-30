@@ -41,9 +41,12 @@ MakeDancer.prototype.checkDistance = function() { //x1,y1, x2,y2
     var y2 = window.dancers[i + 1].left;
     inner = Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2);
     distance = Math.sqrt(inner);
-    if (distance < 10) {
+    if (distance < 200) {
       //make pow
-      console.log('pow');
+      $('.pow').css('visibility', 'visible');
+      setTimeout(function() {
+        $('.pow').css({'visibility': 'hidden', 'top': x1, 'left': y1});
+      }, 100);
     }
   }
   

@@ -13,21 +13,20 @@ SidePongDancer.prototype.constructor = SidePongDancer;
 SidePongDancer.prototype.pong = function() {
   if (this.hasLinedup) {
     return;
-  }
-  else if (this.iterations > 20) {
+  } else if (this.iterations > 15) {
     this.iterations = 0;
     this.left = 300;
     this.top = 30;
-  } else {
-    this.left += 100;
-    this.top += 50;
-    this.iterations++;
+  } 
+  this.left += 100;
+  this.top += 50;
+  this.iterations++;
   
   
-    this.$node.animate({left: this.left + 'px', top: this.top + 'px'});
-    this.$node.animate({left: -this.left + 'px', top: this.top + 'px'});
-    this.step(this.pong.bind(this));
-  }
+  this.$node.animate({left: this.left + 'px', top: this.top + 'px'});
+  this.$node.animate({left: '0px', top: this.top + 'px'});
+  this.step(this.pong.bind(this));
+  
   
   
 };

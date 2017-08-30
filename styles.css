@@ -3,7 +3,10 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  /*background-color:#444;*/
+  background-image: url("src/backgroundScenery.jpg");
+  background-size: cover;
+  
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -21,19 +24,29 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
   position:absolute;
+  height: 276px;
+  width: 299px;
+  background: url('src/tinkerbell.png');
+  transform: scale(0.5);
+  
 }
 .mydancer{
-  border:10px solid blue;
-  border-radius:15px;
+  height: 420px;
+  width: 420px;
+  background: url('src/raindrop.png');
+  transform: scale(0.5);
   position:absolute;
 }
-.pongdancer{
-  border:10px solid green;
-  border-radius:15px;
+.pongdancer{ /*2474 × 1760*/
+  height: 308px;
+  width: 600px;
+  background: url('src/bat.png');
+  transform: scale(0.2);
   position:absolute;
+}
+.pow{
+  visibility: hidden;
 }
 /*.enhance{
   
